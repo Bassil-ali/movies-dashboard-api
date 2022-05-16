@@ -44,7 +44,7 @@ class ActorController extends Controller
 
     public function data()
     {
-        $actors = Actor::withCount(['movies']);
+        $actors = Actor::withCount(['movies'])->latest();
 
         return DataTables::of($actors)
             ->addColumn('record_select', 'admin.actors.data_table.record_select')
